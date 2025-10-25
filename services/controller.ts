@@ -8,6 +8,7 @@ import config from '@/app/config';
 import { getUserDetails } from "./userDetail";
 import { send } from './send';
 import { getAccountFromEmail, getAccountFromPhone } from './accountService';
+import { register } from './register';
 
 export const fetchUserDetails = async () => {
 
@@ -148,4 +149,22 @@ export const fetchAccountFromPhone = async (phone: string) => {
         // TODO : Store in favorites
     }
     return result;
+}
+
+export const performRegister = async (firstname: string, lastname: string, email: string,  phone: string,region: string, password: string) => {
+    console.log("Performing registration for:", email);
+
+    const symbol = config.app_currency_symbol;
+
+    const result = await register(symbol, firstname, lastname, email, phone, region, password);
+
+    if (result && result.status === 201) {
+        console.log("Registration successful");
+        router.push("/login/confirm");
+    }
+
+    console.log("Registration result:", result);
+
+    return result
+
 }
