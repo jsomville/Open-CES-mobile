@@ -1,15 +1,19 @@
 import { router } from "expo-router";
-import { Alert, Button, Image, Linking, StatusBar, Text, TextInput, View } from "react-native";
+import { Alert, Button, Image, Linking, StatusBar, Text, TextInput, TouchableOpacity, View } from "react-native";
 
 import { useState } from 'react';
 
-const mylogo = require('../../assets/images/logo.png');
+const currencyLogo = require('../../assets/images/currency.png');
+
+const appLogo = require('../../assets/images/logo.png');
 
 import globalStyles from "../globalStyles";
 
 import config from "../config";
 
 import { login } from '../../services/login';
+
+import packageJson from '../../package.json';
 
 const LoginScreen = () => {
 
@@ -38,41 +42,59 @@ const LoginScreen = () => {
     } catch (error) {
       console.error('Login error:', error);
       Alert.alert('Login Error', 'An error occurred during login. Please try again.');
-    } 
+    }
   };
 
   return (
     <View style={globalStyles.loginContainer}>
       <StatusBar backgroundColor="#fff" barStyle="dark-content" />
-      <Image source={mylogo} style={globalStyles.login_image} />
-      <View >
-        <Text style={globalStyles.label}>Email</Text>
-        <TextInput
-          placeholder="Enter your email"
-          style={globalStyles.input}
-          value={username}
-          onChangeText={setUsername}
-          autoCapitalize="none"
-          keyboardType="email-address"
-        />
-        <Text style={globalStyles.label}>Password</Text>
-        <TextInput
-          placeholder="Enter your password"
-          style={globalStyles.input}
-          value={password}
-          onChangeText={setPassword}
-          secureTextEntry={true}
-      />
+      <View style={globalStyles.menuHeaderContainer}>
+        <Image source={currencyLogo} style={globalStyles.login_image} />
+        <View >
+          <Text style={globalStyles.label}>Email</Text>
+          <TextInput
+            placeholder="Enter your email"
+            style={globalStyles.input}
+            value={username}
+            onChangeText={setUsername}
+            autoCapitalize="none"
+            keyboardType="email-address"
+          />
+        </View>
+        <View>
+          <Text style={globalStyles.label}>Password</Text>
+          <TextInput
+            placeholder="Enter your password"
+            style={globalStyles.input}
+            value={password}
+            onChangeText={setPassword}
+            secureTextEntry={true}
+          />
+        </View>
+
+        <View style={globalStyles.actionButtonContainer}>
+          <Text style={globalStyles.hyperlink} onPress={() => Linking.openURL(config.new_user_url)}
+          >Create new account</Text>
+          <TouchableOpacity
+            style={globalStyles.roundedButton}
+            onPress={() => { handleLogin(); }}
+          >
+            <Text>Login</Text>
+          </TouchableOpacity>
+        </View>
       </View>
 
-      <View style={globalStyles.actionButtonContainer}>
-        <Text style={globalStyles.hyperlink} onPress={() => Linking.openURL(config.new_user_url)}
-        >Create new account</Text>
-
-        <Button title="Login" onPress={handleLogin} />
+      <View style={globalStyles.footerContainer}>
+        <View style={globalStyles.columnContainer}>
+          <View style={globalStyles.columnContainer}>
+            <Text>Powered by</Text>
+            <Image source={appLogo} style={globalStyles.small_logo_image} />
+          </View>
+          <Text>Version : {packageJson.version}</Text>
+        </View>
       </View>
 
-    </View>
+    </View >
   );
 }
 

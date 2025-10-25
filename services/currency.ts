@@ -26,8 +26,6 @@ export const getCurrency = async () => {
 
       const currency =  JSON.stringify(response.data);
 
-      console.log('Currency retrieved:', currency);
-
       //Store Currency list
       await SecureStore.setItemAsync('currency', currency);
 

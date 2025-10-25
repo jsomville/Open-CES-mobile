@@ -1,6 +1,7 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { Text, View, Image } from "react-native";
 
+const currencyLogo = require("../../assets/images/currency.png");
 import globalStyles from "../globalStyles";
 
 const Transaction = ({ date, transactionType, description, amount }: { date: string; transactionType: string, description: string; amount: string | number }) => {
@@ -17,12 +18,22 @@ const Transaction = ({ date, transactionType, description, amount }: { date: str
         <Text style={globalStyles.transactionDay}>{day}</Text>
         <Text style={globalStyles.transactionMonth}>{month}</Text>
       </View>
-      <View>
-        <Text style={globalStyles.transactionType}>{transactionType}</Text>
+      <View style={globalStyles.transactionDetails}>
+        <Text style={globalStyles.transactionType}>
+         
+          {transactionType}
+        </Text>
         <Text style={globalStyles.transactionDescription}>{description}</Text>
       </View>
       <View style={globalStyles.transactionAmountContainer}>
-        <Text style={globalStyles.transactionAmount}>{formattedAmount}</Text>
+        <Text style={globalStyles.transactionAmount}>
+           {transactionType === "Received" ? (
+            <Text style={{ color: "green" }}>+ </Text>
+          ) : transactionType === "Transfer" ? (
+            <Text style={{ color: "red" }}>- </Text>
+          ) : null}
+          {formattedAmount}</Text>
+        <Image source={currencyLogo} style={globalStyles.small_image} />
       </View>
     </View>
   );

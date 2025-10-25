@@ -24,17 +24,31 @@ const MenuLayout = () => {
           headerShown: true,
         }}
       />
-       <Stack.Screen
+      <Stack.Screen
         name="receive"
         options={{
           title: "Receive",
           headerShown: true,
         }}
       />
-       <Stack.Screen
+      <Stack.Screen
         name="pay"
         options={{
           title: "Pay",
+          headerShown: true,
+        }}
+      />
+       <Stack.Screen
+        name="user"
+        options={{
+          title: "User",
+          headerShown: true,
+        }}
+      />
+      <Stack.Screen
+        name="scan"
+        options={{
+          title: "Scan",
           headerShown: true,
         }}
       />
