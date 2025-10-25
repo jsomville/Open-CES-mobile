@@ -46,7 +46,6 @@ export const login = async (username: string, password: string) => {
         message: "Invalid username or password"
       };
     }
-
   } catch (error) {
       console.error('Login failed:', error);
       throw error;

@@ -16,7 +16,6 @@ export const send = async (account: string, amount: number, description: string)
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`
         };
-
         const body = {
             account: parseInt(account),
             amount,

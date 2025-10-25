@@ -24,12 +24,13 @@ const globalStyles = StyleSheet.create({
     justifyContent: "flex-start",
     alignItems: "center",
   },
-  footerContainer :{
+  footerContainer: {
     flex: 1,
-    backgroundColor : 'darkGray',
+    backgroundColor: 'darkGray',
     justifyContent: 'flex-end',
     marginBottom: 20,
   },
+  
   menuHeaderContainer: {
     flexDirection: "column",
     alignItems: "center",
@@ -96,12 +97,12 @@ const globalStyles = StyleSheet.create({
     alignItems: 'flex-end',
     justifyContent: 'flex-start'
   },
-  accountNumber :{
+  accountNumber: {
     fontSize: 18,
     marginBottom: 5,
     alignSelf: 'center'
   },
-  balanceText :{
+  balanceText: {
     fontSize: 24,
     marginBottom: 5,
   },
@@ -155,19 +156,25 @@ const globalStyles = StyleSheet.create({
   label: {
     fontSize: 16,
     marginBottom: 6,
-    marginLeft:15,
-    marginRight:15,
+    marginLeft: 15,
+    marginRight: 15,
+  },
+  eyeIcon: {
+    fontSize: 30,
+    marginRight: 5,
+    justifyContent: "center", // Vertically center the amount
+    alignItems: "center", // Horizontally center the amount
   },
   input: {
     borderWidth: 1,
     padding: 10,
     width: 250,
     borderRadius: 5,
-    marginLeft:15,
-    marginRight:15,
+    marginLeft: 15,
+    marginRight: 15,
     marginBottom: 16,
   },
-  amount_input_text :{
+  amount_input_text: {
     borderWidth: 1,
     borderColor: '#aaa',
     padding: 10,
@@ -178,7 +185,7 @@ const globalStyles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "right",
   },
-  amount_display_text :{
+  amount_display_text: {
     fontSize: 20,
     fontWeight: "bold",
     color: "#333",
@@ -194,7 +201,7 @@ const globalStyles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#ccc',
   },
-   selectedText: {
+  selectedText: {
     marginTop: 16,
     fontSize: 16,
     color: '#333',
@@ -206,7 +213,7 @@ const globalStyles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: "#ccc",
   },
-  transactionDetails:{
+  transactionDetails: {
     flex: 3,
   },
   transactionDate: {

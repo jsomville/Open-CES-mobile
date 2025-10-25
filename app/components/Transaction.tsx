@@ -20,14 +20,13 @@ const Transaction = ({ date, transactionType, description, amount }: { date: str
       </View>
       <View style={globalStyles.transactionDetails}>
         <Text style={globalStyles.transactionType}>
-         
           {transactionType}
         </Text>
         <Text style={globalStyles.transactionDescription}>{description}</Text>
       </View>
       <View style={globalStyles.transactionAmountContainer}>
         <Text style={globalStyles.transactionAmount}>
-           {transactionType === "Received" ? (
+          {transactionType === "Received" ? (
             <Text style={{ color: "green" }}>+ </Text>
           ) : transactionType === "Transfer" ? (
             <Text style={{ color: "red" }}>- </Text>

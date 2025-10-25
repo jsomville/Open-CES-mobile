@@ -25,7 +25,6 @@ export const getUserDetails = async () => {
     if (response.status === 200) {
 
       const data = JSON.stringify(response.data);
-
       await SecureStore.setItemAsync('userData', data);
 
       return {
