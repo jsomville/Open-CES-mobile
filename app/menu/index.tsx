@@ -17,7 +17,7 @@ import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 
 const currencyLogo = require("../../assets/images/currency.png");
 
-import { fetchCurrency, fetchUserDetails, performLogout } from "@/services/controller";
+import { fetchCurrency, fetchUserDetails, performLogout } from "../../services/controller";
 
 import Transaction from "../components/Transaction";
 import globalStyles from "../globalStyles";

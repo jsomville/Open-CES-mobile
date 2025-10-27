@@ -4,7 +4,7 @@ import { router } from "expo-router";
 import { getCurrency } from "./currency";
 import { refreshAccessToken, logout } from "./login";
 import { getTransaction } from "./transaction";
-import config from '@/app/config';
+import config from '../app/config';
 import { getUserDetails } from "./userDetail";
 import { send } from './send';
 import { getAccountFromEmail, getAccountFromPhone } from './accountService';

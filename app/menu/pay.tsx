@@ -17,7 +17,7 @@ const PayScreen = () => {
           autoCapitalize="none"
           keyboardType="email-address"
         />
-        <TouchableOpacity style={globalStyles.roundButton}
+        <TouchableOpacity style={globalStyles.roundedButton}
               onPress={() => {
                 console.log("Scan to");
               }}  

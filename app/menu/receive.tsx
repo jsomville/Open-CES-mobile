@@ -9,14 +9,14 @@ const RecieveScreen = () => {
   return (
     <View style={globalStyles.mainContainer}>
     
-        <TouchableOpacity style={globalStyles.roundButton}
+        <TouchableOpacity style={globalStyles.roundedButton}
               onPress={() => {
                 console.log("Scan to");
               }}  
             >
           <Text>Scan QR</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={globalStyles.roundButton}
+        <TouchableOpacity style={globalStyles.roundedButton}
               onPress={() => {
                 console.log("Send to:");
               }}  

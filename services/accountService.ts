@@ -1,4 +1,4 @@
-import config from '@/app/config';
+import config from '../app/config';
 import axios from 'axios';
 import * as SecureStore from 'expo-secure-store';
 

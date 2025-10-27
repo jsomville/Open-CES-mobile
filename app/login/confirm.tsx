@@ -41,6 +41,7 @@ const RegisterScreen = () => {
                         autoCapitalize="none"
                         keyboardType="default"
                     />
+                    
                 </View>
 
                 <View style={globalStyles.actionButtonContainer}>

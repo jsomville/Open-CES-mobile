@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import * as SecureStore from "expo-secure-store";
 
 import globalStyles from "../globalStyles";
-import { fetchAccountFromEmail, fetchAccountFromPhone, sendTo } from "@/services/controller";
+import { fetchAccountFromEmail, fetchAccountFromPhone, sendTo } from "../../services/controller";
 const currencyLogo = require("../../assets/images/currency.png");
 
 const SendScreen = () => {

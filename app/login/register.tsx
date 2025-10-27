@@ -6,7 +6,7 @@ import { useState } from 'react';
 import globalStyles from "../globalStyles";
 
 import { router } from "expo-router";
-import { performRegister } from "@/services/controller";
+import { performRegister } from "../../services/controller";
 
 const appLogo = require('../../assets/images/logo.png');
 

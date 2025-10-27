@@ -25,3 +25,47 @@ Git Hub for the back-end system is : https://github.com/jsomville/open-CES
  - Logout
  - Account info, last transactions
  - Passed transactions
+
+## Build Android app
+
+### Pre-requisite
+   Have a valid expo account
+
+   ```bash
+   npm install -g eas-cli
+   ```
+### Build
+   Login to expo
+   ```bash
+   eas login
+   ```
+   
+   Build configure if required
+   ```bash
+   eas build:configure
+   ```
+
+   Build production (default)
+   ```bash
+   eas build --platform android
+   ```
+
+   Build production (preview)
+   ```bash
+   eas build --platform android -- profile preview
+   ```
+
+## DEV Help to resolve dependencies
+   To check dependency
+   ```bash
+   npx depcheck
+   ```
+
+   Delete line in package.json
+
+   Repackages-install 
+
+   ```bash
+   npm install
+   ```
+

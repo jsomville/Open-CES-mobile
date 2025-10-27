@@ -9,8 +9,6 @@ const appLogo = require('../../assets/images/logo.png');
 
 import globalStyles from "../globalStyles";
 
-import config from "../config";
-
 import { login } from '../../services/login';
 
 import packageJson from '../../package.json';
