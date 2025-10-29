@@ -23,8 +23,10 @@ Git Hub for the back-end system is : https://github.com/jsomville/open-CES
 
  - Login
  - Logout
- - Account info, last transactions
- - Passed transactions
+ - Register
+ - Account info and most recent transactions
+ - Transfer by account id, email and phone
+ - View passed transactions
 
 ## Build Android app
 
