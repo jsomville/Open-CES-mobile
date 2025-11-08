@@ -252,6 +252,7 @@ const globalStyles = StyleSheet.create({
     paddingVertical: 4,
     paddingHorizontal: 8,
     borderRadius: 4,
+    margin: 5
   },
 });
 

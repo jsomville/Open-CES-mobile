@@ -18,7 +18,6 @@ const SendScreen = () => {
   const [isAccountBox_visible, setIsAccountBox_visible] = useState(true);
 
   const fetchDetails = async () => {
-
     // Account data
     const data = await SecureStore.getItemAsync("account");
     if (data) {
@@ -26,7 +25,20 @@ const SendScreen = () => {
 
       setAccountBalance(accountData.balance);
     }
+  };
 
+  const setJaneDoe = async () => {
+    console.log('Set Jane Doe');
+    setSendToEmail('jane.doe@example.com');
+    setSendToPhone('+3267890766');
+    setSendToAccount("331")
+  };
+
+  const setJohnDoe = async () => {
+    console.log('Set John Doe');
+    setSendToEmail('john.doe@example.com');
+    setSendToPhone('+3267890765');
+    setSendToAccount("552")
   };
 
   const sendAction = async () => {
@@ -208,6 +220,9 @@ const SendScreen = () => {
           />
         </View>
       </View>
+      <View>
+
+      </View>
       <TouchableOpacity style={globalStyles.roundedButton}
         onPress={() => {
           confirmSend();
@@ -215,7 +230,16 @@ const SendScreen = () => {
       >
         <Text>Send now</Text>
       </TouchableOpacity>
-
+      <View>
+        <View style={globalStyles.columnContainer}>
+          <TouchableOpacity style={globalStyles.smallButton} onPress={() => setJohnDoe()}>
+            <Text>John Doe</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={globalStyles.smallButton} onPress={() => setJaneDoe()}>
+            <Text>Jane Doe</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
     </View>
   );
 }

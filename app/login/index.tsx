@@ -1,7 +1,7 @@
 import { router } from "expo-router";
 import { Alert, Image, Linking, StatusBar, Text, TextInput, TouchableOpacity, View } from "react-native";
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const currencyLogo = require('../../assets/images/currency.png');
 
@@ -13,16 +13,30 @@ import { login } from '../../services/login';
 
 import packageJson from '../../package.json';
 
+import * as SecureStore from 'expo-secure-store';
+
 const LoginScreen = () => {
 
-    const [username, setUsername] = useState('a@b.com');
-    const [password, setPassword] = useState('Test12345!');
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
 
     const register = async () => {
         console.log('Navigate to Register');
         router.push("/login/register");
     }
+
+    const setJaneDoe = async () => {
+        console.log('Set Jane Doe');
+        setUsername('jane.doe@example.com');
+        setPassword('Test12345!');
+    };
+
+    const setJohnDoe = async () => {
+        console.log('Set John Doe');
+        setUsername('john.doe@example.com');
+        setPassword('Test12345!');
+    };
 
     const handleLogin = async () => {
         console.log('Handle Login');
@@ -48,12 +62,25 @@ const LoginScreen = () => {
         }
     };
 
+    const displayLastLogin = async () => {
+        const lastLogin = await SecureStore.getItemAsync('lastLogin');
+        if (lastLogin) {
+            setUsername(lastLogin);
+        }
+    }
+
+    // Fetch details on component mount
+      useEffect(() => {
+        displayLastLogin();
+      }, []);
+
     return (
         <View style={globalStyles.loginContainer}>
             <StatusBar backgroundColor="#fff" barStyle="dark-content" />
             <View style={globalStyles.menuHeaderContainer}>
-                <View>
+                <View style={globalStyles.columnContainer}>
                     <Image source={currencyLogo} style={globalStyles.login_image} />
+                    
                 </View>
                 <View>
                     <View >
@@ -69,7 +96,7 @@ const LoginScreen = () => {
                     </View>
                     <View>
                         <Text style={globalStyles.label}>Password</Text>
-                        <View style={{ flexDirection: 'row', alignItems: 'center'}}>
+                        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                             <TextInput
                                 placeholder="Enter your password"
                                 style={globalStyles.input}
@@ -92,6 +119,14 @@ const LoginScreen = () => {
                         onPress={() => { handleLogin(); }}
                     >
                         <Text>Login</Text>
+                    </TouchableOpacity>
+                </View>
+                <View style={globalStyles.columnContainer}>
+                    <TouchableOpacity style={globalStyles.smallButton} onPress={() => setJohnDoe()}>
+                        <Text>John Doe</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={globalStyles.smallButton} onPress={() => setJaneDoe()}>
+                        <Text>Jane Doe</Text>
                     </TouchableOpacity>
                 </View>
             </View>

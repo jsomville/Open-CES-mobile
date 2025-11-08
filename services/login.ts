@@ -36,6 +36,9 @@ export const login = async (username: string, password: string) => {
       const refreshToken = response.data.refreshToken;
       await SecureStore.setItemAsync('refreshToken', refreshToken);
 
+      // Last Login time
+      await SecureStore.setItemAsync('lastLogin', username);
+
       return {
         status: 200,
         message: "Login successful"
